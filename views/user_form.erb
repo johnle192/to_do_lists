@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>New User</title>
+    <style>
+      <%= STYLE %>
+    </style>
+  </head>
+  <body>
+
+    <h1> <%= HEADER %> </h1>
+    <h2>New User</h2>
+
+    <form action="/users" method="POST">
+      First Name: <input type="text" name="first_name">
+      <br/>
+      Last Name: <input type="text" name="last_name">
+      <br/>
+      <input type="submit">
+    </form>
+
+  </body>
+</html>
