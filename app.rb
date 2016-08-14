@@ -47,25 +47,32 @@ get '/users/:id' do
   erb :show_user
 end
 
+get '/lists/new' do
+  erb :list_form
+end
+
 post '/lists' do
   param :name, String
   param :user_id, Integer
 
-  list = ToDoList.create!(name: params[:name], user_id: params[:user_id])
-  status 200
-  list.to_json
+  @list = ToDoList.create!(name: params[:name], user_id: params[:user_id])
+  erb :show_list
+
+  # status 200
+  # list.to_json
 end
 
-get '/lists/:user_id' do
-  lists = ToDoList.where(user_id: params[:user_id])
-  status 200
-  { lists: lists }.to_json
-end
+# get '/lists/:user_id' do
+#   lists = ToDoList.where(user_id: params[:user_id])
+#   status 200
+#   { lists: lists }.to_json
+# end
 
 get '/lists/:id' do
-  list = ToDoList.find(params[:id])
-  status 200
-  list.to_json
+  @list = ToDoList.find(params[:id])
+  erb :show_list
+  # status 200
+  # list.to_json
 end
 
 post '/list_items' do

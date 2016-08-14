@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 20160810021016) do
 
   create_table "list_items", force: :cascade do |t|
     t.text     "title"
-    t.integer  "list_id"
-    t.boolean  "completed",  default: false
+    t.integer  "to_do_list_id"
+    t.boolean  "completed",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

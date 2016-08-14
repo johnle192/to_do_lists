@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>User</title>
+    <style>
+      <%= STYLE %>
+    </style>
+  </head>
+  <body>
+
+    <h1> <%= HEADER %> </h1>
+    <h2><%= "#{@list.name}" %></h2>
+    <ul>
+      <% @list.list_items.each do |li| %>
+      <% next if li.completed == true %>
+      <li> <%= li.title %> </li>
+      <% end %>
+    </ul>
+
+  </body>
+</html>
